@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Didi Ji! 🎉</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- JS Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #fce7f3 0%, #ffd1dc 50%, #e0e7ff 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .heading-font {
+            font-family: 'Fredoka', cursive;
+        }
+
+        /* Smooth Screen Transitions */
+        .screen {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .screen.active {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .float-elem {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Dodging button smooth position change */
+        #nopeBtn {
+            transition: all 0.2s ease-out;
+            position: relative;
+        }
+
+        /* Custom Glassmorphism Card Styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(244, 114, 182, 0.15);
+        }
+
+        .photo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .photo-card:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.25);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4 min-h-screen">
+
+    <!-- BACKGROUND DECORATIONS -->
+    <div class="fixed top-10 left-10 text-4xl opacity-40 float-elem">🎈</div>
+    <div class="fixed top-1/4 right-10 text-5xl opacity-40 float-elem" style="animation-delay: 1s;">🎂</div>
+    <div class="fixed bottom-10 left-16 text-5xl opacity-40 float-elem" style="animation-delay: 2s;">✨</div>
+    <div class="fixed bottom-12 right-12 text-4xl opacity-40 float-elem" style="animation-delay: 1.5s;">🎁</div>
+
+    <!-- MAIN CONTAINER -->
+    <main class="w-full max-w-xl mx-auto z-10">
+
+        <!-- ================= INTERFACE 1: LANDING / QUESTION ================= -->
+        <section id="screen1" class="screen active flex-col items-center justify-center text-center p-8 rounded-3xl glass-card">
+            <div class="text-6xl mb-6 float-elem">🎁</div>
+            <h1 class="heading-font text-3xl md:text-4xl font-bold text-pink-600 mb-4 leading-tight">
+                Hey Didi Ji! 👋
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-700 font-semibold mb-8">
+                Do you want to see what I made for you? 🧐✨
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-6 w-full relative min-h-[100px]" id="btnContainer">
+                <button id="yossBtn" onclick="goToScreen2()" 
+                    class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-extrabold text-xl px-8 py-4 rounded-full shadow-lg transform hover:scale-110 active:scale-95 transition-all duration-200">
+                    Yoss! 😍
+                </button>
+
+                <button id="nopeBtn" 
+                    class="bg-gray-400 text-white font-bold text-xl px-8 py-4 rounded-full shadow cursor-pointer">
+                    Nope 😜
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ================= INTERFACE 2: HEARTFELT WISHS ================= -->
+        <section id="screen2" class="screen flex-col items-center text-center p-8 rounded-3xl glass-card">
+            <div class="text-6xl mb-4 animate-bounce">🎉</div>
+            <h1 class="heading-font text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 mb-6">
+                Happy Birthday Didi Ji! 🎂✨
+            </h1>
+
+            <div class="bg-pink-50/80 border-2 border-pink-200 rounded-2xl p-6 mb-8 text-left space-y-4 shadow-inner">
+                <p class="text-lg md:text-xl text-gray-800 leading-relaxed font-semibold">
+                    I wish this year's birthday becomes your best! May God bless you with great happiness, immense joy, great success, and good health. 🌸
+                </p>
+                <p class="text-lg md:text-xl text-pink-700 font-bold leading-relaxed">
+                    May you grow so much in life that your success truly touches the sky! Whenever I look up, I want to see you reaching incredible heights.... 
+                    <span class="block mt-2 italic text-purple-700 font-extrabold bg-purple-100 p-3 rounded-xl border border-purple-200 text-base md:text-lg">
+                        ( Which is perfect, because since you're so tiny in real life, a massive metaphorical height is the only way anyone's going to spot you, Butki! 😜🤏)
+                    </span>
+                </p>
+            </div>
+
+            <button onclick="goToScreen3()" 
+                class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold text-xl px-8 py-4 rounded-full shadow-lg transform hover:scale-105 active:scale-95 transition-all">
+                See Your Memory Gallery 📸 ❤️
+            </button>
+        </section>
+
+
+        <!-- ================= INTERFACE 3: SARCASTIC PHOTO GALLERY ================= -->
+        <section id="screen3" class="screen flex-col items-center text-center p-6 md:p-8 rounded-3xl glass-card">
+            <h2 class="heading-font text-3xl md:text-4xl font-extrabold text-pink-600 mb-2">
+                Didi's Hall of Fame 🏆
+            </h2>
+            <p class="text-gray-600 font-bold mb-6">A few honest compliments for the shortest boss! 📐</p>
+
+            <!-- Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-8 max-h-[60vh] overflow-y-auto p-2">
+
+                <!-- CARD 1 -->
+                <div class="photo-card bg-white rounded-2xl p-4 shadow-md border border-pink-100 flex flex-col items-center">
+                    <div class="w-full h-48 bg-pink-100 rounded-xl overflow-hidden mb-3 relative">
+                        <!-- REPLACE THIS URL WITH YOUR PHOTO -->
+                        <img src="https://placehold.co/400x400/fbcfe8/be185d?text=Eldest+Tiny+Sister+👑" 
+                             alt="Eldest Tiny Sister" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-extrabold text-pink-700 text-lg">Eldest Tiny Sister 👑</p>
+                    <p class="text-xs text-gray-500 mt-1">Official Leader of the Pocket Edition Squad.</p>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="photo-card bg-white rounded-2xl p-4 shadow-md border border-pink-100 flex flex-col items-center">
+                    <div class="w-full h-48 bg-purple-100 rounded-xl overflow-hidden mb-3 relative">
+                        <!-- REPLACE THIS URL WITH YOUR PHOTO -->
+                        <img src="https://placehold.co/400x400/e9d5ff/6b21a8?text=Biggest+Heart+Smallest+Height+📏" 
+                             alt="Smallest Height" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-extrabold text-purple-700 text-lg">Big Heart, Small Height! 📏❤️</p>
+                    <p class="text-xs text-gray-500 mt-1">100% Heart, 50% Height.</p>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="photo-card bg-white rounded-2xl p-4 shadow-md border border-pink-100 flex flex-col items-center">
+                    <div class="w-full h-48 bg-rose-100 rounded-xl overflow-hidden mb-3 relative">
+                        <!-- REPLACE THIS URL WITH YOUR PHOTO -->
+                        <img src="https://placehold.co/400x400/fecdd3/9f1239?text=Shortest+Boss+👧" 
+                             alt="Shortest Boss" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-extrabold text-rose-700 text-lg">Shortest Boss In Family 👧</p>
+                    <p class="text-xs text-gray-500 mt-1">Demands full respect while standing on a stool!</p>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="photo-card bg-white rounded-2xl p-4 shadow-md border border-pink-100 flex flex-col items-center">
+                    <div class="w-full h-48 bg-amber-100 rounded-xl overflow-hidden mb-3 relative">
+                        <!-- REPLACE THIS URL WITH YOUR PHOTO -->
+                        <img src="https://placehold.co/400x400/fef3c7/92400e?text=Standing+Tall...In+Spirit!+🤏" 
+                             alt="Standing Tall" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-extrabold text-amber-800 text-lg">Standing Tall... In Spirit! 🤏</p>
+                    <p class="text-xs text-gray-500 mt-1">Height limit exceeded (in dreams only)!</p>
+                </div>
+
+            </div>
+
+            <!-- Footer Action -->
+            <button onclick="triggerConfettiBurst()" 
+                class="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold text-lg px-8 py-3 rounded-full shadow hover:scale-105 transition-all">
+                Celebrate Again! 🥳 🎉
+            </button>
+        </section>
+
+    </main>
+
+    <script>
+        // --- SCREEN NAVIGATION LOGIC ---
+        function switchScreen(hideId, showId) {
+            const hideEl = document.getElementById(hideId);
+            const showEl = document.getElementById(showId);
+
+            hideEl.classList.remove('active');
+            setTimeout(() => {
+                showEl.classList.add('active');
+            }, 250);
+        }
+
+        function goToScreen2() {
+            switchScreen('screen1', 'screen2');
+            triggerConfetti();
+        }
+
+        function goToScreen3() {
+            switchScreen('screen2', 'screen3');
+            triggerConfetti();
+        }
+
+        // --- DODGING "NOPE" BUTTON LOGIC ---
+        const nopeBtn = document.getElementById('nopeBtn');
+        const btnContainer = document.getElementById('btnContainer');
+
+        function moveNopeButton() {
+            // Calculate available boundary inside screen/container
+            const containerRect = btnContainer.getBoundingClientRect();
+            
+            // Random translation ranges
+            const randomX = (Math.random() - 0.5) * 240; 
+            const randomY = (Math.random() - 0.5) * 160;
+
+            nopeBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        // Trigger move on mouseover & touchstart
+        nopeBtn.addEventListener('mouseover', moveNopeButton);
+        nopeBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveNopeButton();
+        });
+        nopeBtn.addEventListener('click', moveNopeButton);
+
+        // --- CONFETTI ANIMATIONS ---
+        function triggerConfetti() {
+            confetti({
+                particleCount: 80,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function triggerConfettiBurst() {
+            const count = 200;
+            const defaults = { origin: { y: 0.7 } };
+
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
+            }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
+        }
+    </script>
+</body>
+</html>
